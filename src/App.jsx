@@ -2,23 +2,15 @@ import { useState } from 'react';
 import './App.css'
 
 function App() {
-// let counter = 5;
 const [counter, setCounter] = useState(0);
 
 const addValue = () => {
-  if(counter <= 19) {
-    setCounter(counter + 1);
-  } else {
-    setCounter(20);
-    alert("Counter value should not be greater than 20");
-    return;
-  }
+  setCounter(counter + 1);
 }
 
 const removeValue = () => {
   if(counter <= 0) {
     setCounter(0);
-    alert("Counter value should not be less than 0");
     return;
   }
   setCounter(counter - 1);
@@ -26,11 +18,20 @@ const removeValue = () => {
 
   return (
     <>
-      <h1>Rahul React Js</h1>
-      <h2>Counter Value: {counter} </h2>
-
-      <button onClick={addValue}>Add Value </button><br />
-      <button onClick={removeValue}>Remove Value </button> <br />
+      <div className="counter-container">
+        <h1 className="title">✨ Rahul React Counter ✨</h1>
+        <div className="counter-box">
+          <h2 className="counter-value">{counter}</h2>
+            <div className="button-group">
+              <button className="btn add" onClick={addValue}>
+                ➕ Add
+              </button>
+              <button className="btn remove" onClick={removeValue}>
+                ➖ Remove
+              </button>
+            </div>
+        </div>
+      </div>
     </>
   )
 }
